@@ -39,3 +39,12 @@ df = pd.read_csv("../data/raw/ds_salaries.csv")
 # Initialize Pandas data frame agent
 # ------------------------------------------------------------------
 agent = create_pandas_dataframe_agent(llm, df, verbose=True)
+
+# ------------------------------------------------------------------
+# Perform basic data exploration
+# ------------------------------------------------------------------
+agent.run("How many rows and columns are there in the data set?")
+agent.run("Are there any missing values in the data set?")
+agent.run("What are the data types of the columns in the data set?")
+agent.run("What are the column names in the data set?")
+agent.run("How many catagories are in each column?")
