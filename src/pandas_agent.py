@@ -9,6 +9,7 @@ from langchain.agents import (
     Tool,
     AgentType,
 )
+from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
 import pandas as pd
 
 # ------------------------------------------------------------------
@@ -33,3 +34,8 @@ agent.run(
 # Load the data set
 # ------------------------------------------------------------------
 df = pd.read_csv("../data/raw/ds_salaries.csv")
+
+# ------------------------------------------------------------------
+# Initialize Pandas data frame agent
+# ------------------------------------------------------------------
+agent = create_pandas_dataframe_agent(llm, df, verbose=True)
