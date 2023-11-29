@@ -38,7 +38,7 @@ df = pd.read_csv("../data/raw/ds_salaries.csv")
 # ------------------------------------------------------------------
 # Initialize Pandas data frame agent
 # ------------------------------------------------------------------
-agent = create_pandas_dataframe_agent(llm, df, verbose=True)
+agent = create_pandas_dataframe_agent(llm, df, verbose=True, handle_parsing_errors=True)
 
 # ------------------------------------------------------------------
 # Perform basic data exploration
@@ -48,3 +48,14 @@ agent.run("Are there any missing values in the data set?")
 agent.run("What are the data types of the columns in the data set?")
 agent.run("What are the column names in the data set?")
 agent.run("How many catagories are in each column?")
+
+# ------------------------------------------------------------------
+# Perform multi-step data exploration
+# ------------------------------------------------------------------
+agent.run("What are the top 5 jobs that have the highest median salary?")
+
+query = "What is the percentage of data scientists who are working full time?"
+query = query + " using tool python_repl_ast"
+agent.run(query)
+
+agent.run("Which company location has the most employees working remotely?")
