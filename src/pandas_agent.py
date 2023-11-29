@@ -28,3 +28,8 @@ agent = initialize_agent(
 agent.run(
     "What is the median salary of senior data scientists in 2023? What is the figure given there is a 10% increment?"
 )
+
+# ------------------------------------------------------------------
+# Load the data set
+# ------------------------------------------------------------------
+df = pd.read_csv("../data/raw/ds_salaries.csv")
